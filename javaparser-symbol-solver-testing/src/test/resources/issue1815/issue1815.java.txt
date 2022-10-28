@@ -1,0 +1,24 @@
+import org.example.Non;
+
+public class Foo {
+
+  public static void main(String[] args) {
+
+    Non non = new Non();
+    non.main(args);
+    non.one("args");
+    non.two("args", "");
+    non.three("args", 1, String.class);
+    non.four("args", 2, String.class, "");
+
+    non.one(1);
+    non.two(1, 2);
+    non.three(1, 1, String.class);
+    non.four(1, 2, String.class, 4);
+
+    non.one(args);
+    non.two(args, args);
+    non.three(args, 1, String.class);
+    non.four(args, 2, String.class, args);
+  }
+}
