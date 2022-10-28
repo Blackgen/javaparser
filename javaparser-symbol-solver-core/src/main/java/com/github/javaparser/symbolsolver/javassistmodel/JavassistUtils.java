@@ -251,7 +251,11 @@ class JavassistUtils {
                     .tag);
             if (attr != null) {
                 int pos = Modifier.isStatic(method.getModifiers()) ? 0 : 1;
-                return Optional.ofNullable(attr.variableName(paramNumber + pos));
+                try {
+                    return Optional.of(attr.variableNameByIndex(paramNumber + pos));
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    return Optional.empty();
+                }
             }
         }
         return Optional.empty();
